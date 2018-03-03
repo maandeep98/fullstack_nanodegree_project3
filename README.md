@@ -48,7 +48,7 @@ The web server and the reporting tool both connect to the same database, allowin
   
   2. Use `psql -d news` to connect to database and now you are ready for the application of queries.
   
-  3. Create view article_view using:
+  3. Create view count_view using:
   ```
     create view count_view as select title,author,count(*) as views from articles,log where 
     log.path like concat('%',articles.slug) group by articles.title,articles.author 
@@ -60,7 +60,7 @@ The web server and the reporting tool both connect to the same database, allowin
   | author  | text    |
   | views   | Integer |
   
-  4. Create view error_log_view using:
+  4. Create view view_error using:
   ```
     create view view_error as select date(time),round(100.0*sum(case log.status when '200 OK' 
     then 0 else 1 end)/count(log.status),2) as "Percentage Error" from log group by date(time) 
