@@ -60,7 +60,7 @@ The web server and the reporting tool both connect to the same database, allowin
   | author  | text    |
   | views   | Integer |
   
-  4. Create vier error_log_view using:
+  4. Create view error_log_view using:
   ```
     create view view_error as select date(time),round(100.0*sum(case log.status when '200 OK' 
     then 0 else 1 end)/count(log.status),2) as "Percentage Error" from log group by date(time) 
@@ -69,7 +69,7 @@ The web server and the reporting tool both connect to the same database, allowin
   | Column        | Type    |
   | :-------      | :-------|
   | date          | date    |
-  | Percent Error | float   |
+  | Percentage Error | float   |
   
 ## Running the queries:
   1. From the vagrant directory inside the virtual machine,run log.py using:
