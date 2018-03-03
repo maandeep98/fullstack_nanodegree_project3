@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import psycopg2
 
 database_nm = "news"
@@ -37,7 +39,7 @@ def sol_result(query):
     return results
 
 
-def print_result(query_result)
+def print_results(query_result)
     print(query_result['title'])
     for result in query_result['results']:
         print('\t' + str(result[0]) + ' -----> ' + str(result[1]) + ' views')
