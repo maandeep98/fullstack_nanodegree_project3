@@ -48,9 +48,9 @@ The web server and the reporting tool both connect to the same database, allowin
   
   2. Use `psql -d news` to connect to database and now you are ready for the application of queries.
   
-  3. Create view count_view using:
+  3. Create view count_views using:
   ```
-    create view count_view as select title,author,count(*) as views from articles,log where 
+    create view count_views as select title,author,count(*) as views from articles,log where 
     log.path like concat('%',articles.slug) group by articles.title,articles.author 
     order by views desc;
   ```
